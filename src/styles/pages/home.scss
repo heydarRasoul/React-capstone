@@ -1,0 +1,36 @@
+@import "./animation.scss";
+
+.home-wrapper {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #d35e41, #fab987);
+  width: 100%;
+
+  h1 {
+    color: white;
+    font-size: 90px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 80px;
+  }
+  img {
+    width: 55%;
+  }
+
+  .moving-box {
+    width: 400px;
+    height: 270px;
+    background-color: #d35e41;
+    border-radius: 20px;
+    opacity: 0.5;
+    position: relative;
+    animation: moveLeft 7s linear infinite;
+
+    .logo-icon {
+      border-radius: 10px;
+      width: 400px;
+    }
+  }
+}

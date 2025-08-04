@@ -1,0 +1,26 @@
+// @mixin center-flex-column {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin: 150px auto;
+//   border-radius: 10px;
+// }
+
+// @mixin border-wrapper {
+//   border: 2px solid black;
+//   width: 400px;
+// }
+
+// @mixin button-style {
+//   background-color: purple;
+//   color: white;
+//   width: 200px;
+//   height: 40px;
+//   border-radius: 10px;
+//   margin: 20px;
+// }
+
+html,
+body {
+  margin: 0;
+}
