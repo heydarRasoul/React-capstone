@@ -1,0 +1,13 @@
+.form-wrapper {
+  background-color: gray;
+  form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    button {
+      width: 80px;
+    }
+  }
+}

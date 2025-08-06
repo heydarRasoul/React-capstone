@@ -1,36 +1,44 @@
 @import "./animation.scss";
+@import "./variables-mixin.scss";
 
 .home-wrapper {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   background: linear-gradient(to right, #d35e41, #fab987);
   width: 100%;
 
   h1 {
     color: white;
     font-size: 90px;
+    text-align: right;
+    font-size: 120px;
   }
 
   h2 {
     color: white;
     font-size: 80px;
+    animation: flashing 8s linear infinite;
   }
   img {
     width: 55%;
   }
 
   .moving-box {
-    width: 400px;
-    height: 270px;
-    background-color: #d35e41;
-    border-radius: 20px;
+    width: 50px;
+    height: 30px;
+    position: relative;
+    bottom: 200px;
+    background-color: $main-orange;
+    border-radius: 10px;
     opacity: 0.5;
     position: relative;
-    animation: moveLeft 7s linear infinite;
+    // animation: moveLeft 15s linear infinite;
+    animation: flashing 8s linear infinite;
 
     .logo-icon {
       border-radius: 10px;
-      width: 400px;
+      width: 50px;
     }
   }
 }

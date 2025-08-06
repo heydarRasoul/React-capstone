@@ -13,9 +13,7 @@ export default function Routing() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/products" component={Products} />
-      {/* <Route path="/products/:productId" component={SingleProduct} /> */}
       <Route path="/singleproduct/:id" component={SingleProduct} />
-
       <Route path="/shoppingcart" component={ShoppingCart} />
       <Route path="/home" component={Home} />
       <Redirect exact from="/" to="/home" />

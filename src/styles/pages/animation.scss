@@ -49,3 +49,12 @@
     right: 70%;
   }
 }
+
+@keyframes flashing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 90%;
+  }
+}

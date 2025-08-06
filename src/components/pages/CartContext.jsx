@@ -21,8 +21,43 @@ export default function AddToCartProvider({ children }) {
     });
   };
 
+  const updateQuantity = (productId, action, type) => {
+    setCart((prev) =>
+      prev
+        .map((item) => {
+          if (item.id !== productId) return item;
+
+          if (action === "increase") {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+
+          if (action === "decrease") {
+            const newQuantity = item.quantity - 1;
+            if ((type = "shoppingCart")) {
+              return newQuantity > 0
+                ? { ...item, quantity: newQuantity }
+                : item;
+            } else {
+              return newQuantity > 0
+                ? { ...item, quantity: newQuantity }
+                : null;
+            }
+          }
+
+          return item;
+        })
+        .filter(Boolean)
+    );
+  };
+
+  const removeFromCart = (productId) => {
+    setCart((prev) => prev.filter((item) => item.id !== productId));
+  };
+
   return (
-    <AddToCartContext.Provider value={{ cart, addToCart }}>
+    <AddToCartContext.Provider
+      value={{ cart, addToCart, updateQuantity, removeFromCart }}
+    >
       {children}
     </AddToCartContext.Provider>
   );

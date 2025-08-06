@@ -1,5 +1,89 @@
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+
+import MessageModal from "./MessageModal";
 
 export default function Contact() {
-  return <div className="contact-wrapper"></div>;
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      firstName.trim() === "" ||
+      lastName.trim() === "" ||
+      email.trim() === "" ||
+      message.trim() === ""
+    ) {
+      toast.error("Please fill all fields!");
+    } else {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+      setIsModalOpen(true);
+    }
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  return (
+    <div className="form-wrapper">
+      <form>
+        <label>
+          First Name
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Enter your first name"
+            required
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Enter your last name"
+            required
+          />
+        </label>
+        <label>
+          Email
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+          />
+        </label>
+        <label>
+          Message
+          <textarea
+            type="textarea"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows="7"
+            cols="40"
+            placeholder="Write your message here"
+            required
+          />
+        </label>
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Submit
+        </button>
+        <ToastContainer />
+      </form>
+
+      <MessageModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        Type="contact-page"
+      />
+    </div>
+  );
 }

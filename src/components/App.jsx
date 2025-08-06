@@ -1,4 +1,4 @@
-// import Modal from "react-modal";
+import Modal from "react-modal";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import Routing from "../components/routing/Routing";
 import Footer from "../components/pages/Footer";
 
 export default function App() {
-  // Modal.setAppElement("#root");
+  Modal.setAppElement("#root");
   return (
     <div>
       <BrowserRouter>

@@ -1,4 +1,64 @@
+@import "./variables-mixin.scss";
+
 .products-wrapper {
-  margin-top: 100px;
+  // display: grid;
+  // grid-template-columns: 1fr 6fr;
+  // margin-top: 20px;
   background-color: gray;
+
+  // gap: 20px;
+
+  .filter-sort-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin: 100px 3%;
+    gap: 20px;
+
+    & :hover {
+      cursor: pointer;
+    }
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 0 20%;
+    padding: 90px 0;
+    background-color: gray;
+    gap: 20px;
+
+    // &:hover {
+    //   cursor: pointer;
+    //   box-shadow: $card-box-shadow;
+    // }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 250px;
+      border-radius: $product-card-border-radius;
+      margin: 10px;
+      padding: 10px;
+      border: 2px solid $main-orange;
+      background-color: rgb(184, 179, 165);
+
+      .card-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 100px;
+      }
+
+      h4 {
+        width: 200px;
+        text-align: center;
+      }
+    }
+  }
 }

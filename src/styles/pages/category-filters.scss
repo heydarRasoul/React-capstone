@@ -1,0 +1,14 @@
+@import "./variables-mixin.scss";
+
+.category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .custom-checkbox {
+    background-color: $main-orange;
+    border-radius: $button-box-border-radius;
+    padding: 3px;
+    width: 200px;
+  }
+}
