@@ -1,22 +1,27 @@
-import { useContext, useState } from "react";
+import { React, useContext, useState } from "react";
 import { AddToCartContext } from "./CartContext";
+
 import BackButton from "./BackButton";
 import UpdateShoppingCart from "./UpdateShoppingCart";
 import MessageModal from "./MessageModal";
 
 export default function ShoppingCart() {
-  const { cart, removeFromCart } = useContext(AddToCartContext);
+  const { cart, removeAllFromCart } = useContext(AddToCartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const handleCheckout = () => {
-  //   e.preventDefault();
-  //   {
-  //     cart.map((item) => {
-  //       setCart((prev) => prev.filter((item) => item.id !== productId));
-  //     });
-  //   }
-  //   setIsModalOpen(true);
-  // };
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+    removeAllFromCart();
+  };
+
+  const subTotalPrice = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  const sub = subTotalPrice;
+  const shipping = sub > 50 ? 0 : 7;
+  const Total = shipping + sub;
 
   return (
     <div className="shopping-cart-wrapper">
@@ -32,21 +37,28 @@ export default function ShoppingCart() {
                 <h3>{item.title}</h3>
                 <h3>{item.description}</h3>
                 <h3>
-                  ${item.price} × {item.quantity}
+                  ${item.price} × {item.quantity} = $
+                  {item.price * item.quantity}
                 </h3>
                 <UpdateShoppingCart product={item} type="shoppingCart" />
               </li>
             ))}
           </ul>
-          {/* <button onClick={() => removeFromCart(item)}>Checkout </button> */}
+          <ul>
+            <li>Subtotal: ${sub.toFixed(2)}</li>
+            <li>Shipping: $ {shipping}</li>
 
-          <MessageModal
-            isOpen={isModalOpen}
-            onRequestClose={() => setIsModalOpen(false)}
-            Type="shopping-cart"
-          />
+            <li>Total: $ {sub + shipping}</li>
+          </ul>
+
+          <button onClick={handleCheckout}>Checkout</button>
         </div>
       )}
+      <MessageModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        id="checkout"
+      />
     </div>
   );
 }

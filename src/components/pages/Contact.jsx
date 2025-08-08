@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 import MessageModal from "./MessageModal";
@@ -8,6 +8,7 @@ export default function Contact() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +28,6 @@ export default function Contact() {
     }
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="form-wrapper">
       <form>
@@ -82,7 +82,7 @@ export default function Contact() {
       <MessageModal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
-        Type="contact-page"
+        id="contact-page"
       />
     </div>
   );

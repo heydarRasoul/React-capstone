@@ -1,0 +1,12 @@
+@import "./variables-mixin.scss";
+
+.product-wrapper {
+  background-color: $background-color-main;
+
+  .loading-message {
+    background-color: $modales-back-color;
+    border-radius: $button-box-border-radius;
+    margin: 40%;
+    font-size: 50px;
+  }
+}

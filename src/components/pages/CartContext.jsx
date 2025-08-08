@@ -54,9 +54,19 @@ export default function AddToCartProvider({ children }) {
     setCart((prev) => prev.filter((item) => item.id !== productId));
   };
 
+  const removeAllFromCart = () => {
+    setCart([]);
+  };
+
   return (
     <AddToCartContext.Provider
-      value={{ cart, addToCart, updateQuantity, removeFromCart }}
+      value={{
+        cart,
+        addToCart,
+        updateQuantity,
+        removeFromCart,
+        removeAllFromCart,
+      }}
     >
       {children}
     </AddToCartContext.Provider>

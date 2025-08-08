@@ -5,13 +5,14 @@ import BackButton from "./BackButton";
 import AddToShoppingNow from "./UpdateShoppingCart";
 import TruncateDescription from "./TruncateDescription";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 export default function Products() {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
-
-  // const { addToCart } = useContext(AddToCartContext);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -28,12 +29,17 @@ export default function Products() {
   }, [id]);
 
   return (
-    <div style={{ margin: "300px" }}>
-      {loading && <p>Loading...</p>}
+    <div className="product-container">
+      {loading && (
+        <p className="loading-message">
+          Loading...
+          <FontAwesomeIcon icon={faSpinner} spin />
+        </p>
+      )}
       {!loading && product && (
         <>
           <BackButton />
-          <div>
+          <div className="product-wrapper">
             <img src={product.image} alt={product.title} width={100} />
             <h3>{product.title}</h3>
             <h4>{product.category}</h4>
