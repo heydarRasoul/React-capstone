@@ -1,15 +1,22 @@
 @import "./variables-mixin.scss";
 
-.category-filter {
+.truncate-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
 
-  .custom-checkbox {
-    background-color: $button-color;
+  .truncate-text {
+    width: 350px;
+    text-align: center;
+  }
+
+  .show-hide-button {
+    width: 70px;
     border-radius: $button-box-border-radius;
+    border: none;
+    background-color: $button-color;
     padding: 3px;
-    width: 200px;
 
     &:hover {
       background-color: $main-orange;

@@ -72,22 +72,31 @@ export default function Products() {
 
       {!loading && (
         <>
+          <BackButton />
           <div className="filter-sort-wrapper">
-            <BackButton />
             <CategoryFilters filters={filters} onChange={handleFilterChange} />
             <SortingProducts onSortChange={handleSortChange} />
           </div>
           <div className="product-list">
             {getVisibleProducts().map((product) => (
               <div key={product.id} className="product-card">
-                <NavLink to={`/singleproduct/${product.id}`}>
+                <NavLink
+                  className="nav-link"
+                  to={`/singleproduct/${product.id}`}
+                >
                   <div className="card-items">
-                    <img src={product.image} alt={product.title} />
+                    <div className="products-img-wraper">
+                      <img src={product.image} alt={product.title} />
+                    </div>
                     <h4>{product.title}</h4>
                     <p>${product.price}</p>
                   </div>
                 </NavLink>
-                <UpdateShoppingCart product={product} type="ProductsPage" />
+                <UpdateShoppingCart
+                  product={product}
+                  type="ProductsPage"
+                  className="update-shoping"
+                />
               </div>
             ))}
           </div>

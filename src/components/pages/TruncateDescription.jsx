@@ -8,15 +8,15 @@ export default function TruncateDescription({ text, maxLength = 50 }) {
   };
 
   return (
-    <div>
-      <p>
+    <div className="truncate-wrapper">
+      <p className="truncate-text">
         {isTruncated
           ? text.slice(0, maxLength) + (text.length > maxLength ? "..." : "")
           : text}
       </p>
       {
-        <button onClick={toggleTruncated}>
-          {isTruncated ? "Show more" : "Show less"}
+        <button className="show-hide-button" onClick={toggleTruncated}>
+          {isTruncated ? "More" : "Less"}
         </button>
       }
     </div>

@@ -20,11 +20,18 @@ export default function UpdateShoppingCart({ product, type }) {
   };
 
   return (
-    <div>
-      <button onClick={() => updateQuantity(product.id, "decrease")}>-</button>
+    <div className="update-buttons-wrapper">
+      <button
+        className="update-qountity-button"
+        onClick={() => updateQuantity(product.id, "decrease")}
+      >
+        -
+      </button>
       {type === "shoppingCart" ? (
         <div>
-          <button onClick={removeItemFromCart}>Remove</button>
+          <button className="remove-button" onClick={removeItemFromCart}>
+            Remove
+          </button>
           <MessageModal
             handleRemove={() => removeFromCart(product.id)}
             isOpen={isModalOpen}
@@ -33,9 +40,16 @@ export default function UpdateShoppingCart({ product, type }) {
           />
         </div>
       ) : (
-        <button onClick={() => addToCart(product)}>Add to cart</button>
+        <button className="add-button" onClick={() => addToCart(product)}>
+          Add to cart
+        </button>
       )}
-      <button onClick={() => updateQuantity(product.id, "increase")}>+</button>
+      <button
+        className="update-qountity-button"
+        onClick={() => updateQuantity(product.id, "increase")}
+      >
+        +
+      </button>
     </div>
   );
 }

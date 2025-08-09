@@ -24,41 +24,52 @@ export default function ShoppingCart() {
   const Total = shipping + sub;
 
   return (
-    <div className="shopping-cart-wrapper">
+    <div>
       <BackButton />
-      {cart.length === 0 ? (
-        <p>Your shoping cart is empty</p>
-      ) : (
-        <div>
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id}>
-                <img src={item.image} alt={item.title} width={100} />
-                <h3>{item.title}</h3>
-                <h3>{item.description}</h3>
-                <h3>
-                  ${item.price} × {item.quantity} = $
-                  {item.price * item.quantity}
-                </h3>
-                <UpdateShoppingCart product={item} type="shoppingCart" />
-              </li>
-            ))}
-          </ul>
-          <ul>
-            <li>Subtotal: ${sub.toFixed(2)}</li>
-            <li>Shipping: $ {shipping}</li>
+      <div className="shopping-cart-container">
+        {cart.length === 0 ? (
+          <p className="empty-shopping-cart-message">
+            Your shoping cart is empty
+          </p>
+        ) : (
+          <div className="shopping-cart-wrapper">
+            <ul>
+              {cart.map((item) => (
+                <li key={item.id}>
+                  <div className="product-info-wrapper">
+                    <div>
+                      <img src={item.image} alt={item.title} width={100} />
+                    </div>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <h3>
+                        ${item.price} × {item.quantity} = $
+                        {item.price * item.quantity}
+                      </h3>
+                      <UpdateShoppingCart product={item} type="shoppingCart" />
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="checkout-wrapper">
+              <ul>
+                <li>Subtotal: ${sub.toFixed(2)}</li>
+                <li>Shipping: $ {shipping}</li>
 
-            <li>Total: $ {sub + shipping}</li>
-          </ul>
+                <li>Total: $ {sub + shipping}</li>
+              </ul>
 
-          <button onClick={handleCheckout}>Checkout</button>
-        </div>
-      )}
-      <MessageModal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-        id="checkout"
-      />
+              <button onClick={handleCheckout}>Checkout</button>
+            </div>
+          </div>
+        )}
+        <MessageModal
+          isOpen={isModalOpen}
+          onRequestClose={() => setIsModalOpen(false)}
+          id="checkout"
+        />
+      </div>
     </div>
   );
 }

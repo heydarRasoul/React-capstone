@@ -1,18 +1,12 @@
 @import "./variables-mixin.scss";
 
 .products-wrapper {
-  // display: grid;
-  // grid-template-columns: 1fr 6fr;
-  // margin-top: 20px;
-  background-color: gray;
-
-  // gap: 20px;
-
   .filter-sort-wrapper {
     display: flex;
     flex-direction: column;
     position: fixed;
-    margin: 100px 3%;
+    top: 13%;
+    margin: 20px 3%;
     gap: 20px;
 
     & :hover {
@@ -24,40 +18,60 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    margin: 0 20%;
-    padding: 90px 0;
-    background-color: gray;
+    margin: 4% 20%;
+    padding: 10px 0;
     gap: 20px;
-
-    // &:hover {
-    //   cursor: pointer;
-    //   box-shadow: $card-box-shadow;
-    // }
 
     .product-card {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      width: 250px;
+      width: 220px;
       border-radius: $product-card-border-radius;
       margin: 10px;
       padding: 10px;
-      border: 2px solid $main-orange;
-      background-color: rgb(184, 179, 165);
+      background-color: $product-box-color;
+      box-shadow: $button-box-shadow;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: $card-box-shadow;
+        transform: translateY(-3px);
+      }
 
       .card-items {
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
       }
+      .nav-link {
+        text-decoration: none;
+        color: $font-color;
+        font-family: "Roboto", sans-serif;
+      }
 
-      img {
-        width: 100px;
+      .products-img-wraper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 250px;
+        background-color: $product-img-back-color;
+        border-radius: $product-card-border-radius;
+
+        img {
+          align-self: center;
+          width: 120px;
+          object-fit: contain;
+        }
       }
 
       h4 {
         width: 200px;
         text-align: center;
+        text-decoration: none;
       }
     }
   }

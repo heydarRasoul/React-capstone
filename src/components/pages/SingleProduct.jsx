@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import { AddToCartContext } from "./CartContext";
 import BackButton from "./BackButton";
 import AddToShoppingNow from "./UpdateShoppingCart";
 import TruncateDescription from "./TruncateDescription";
@@ -40,15 +39,24 @@ export default function Products() {
         <>
           <BackButton />
           <div className="product-wrapper">
-            <img src={product.image} alt={product.title} width={100} />
-            <h3>{product.title}</h3>
-            <h4>{product.category}</h4>
-            <h5>Rate: {product.rating.rate}</h5>
-            <h5>Reviews: {product.rating.count}</h5>
-
-            <TruncateDescription text={product.description} />
-            <p>${product.price}</p>
-            <AddToShoppingNow product={product} />
+            <div className="product-info-wrapper">
+              <h3>{product.title}</h3>
+              <TruncateDescription text={product.description} />
+              <div className="product-info">
+                <h5>{product.category}</h5>
+                <h5>Rate: {product.rating.rate}</h5>
+                <h5>Reviews: {product.rating.count}</h5>
+              </div>
+              <p>${product.price}</p>
+              <AddToShoppingNow product={product} />
+            </div>
+            <div className="img-wrapper">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="product-img"
+              />
+            </div>
           </div>
         </>
       )}

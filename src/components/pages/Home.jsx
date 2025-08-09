@@ -14,17 +14,19 @@ import shopper11 from "../../assets/images/shopper-11.jpg";
 import shopper12 from "../../assets/images/shopper-12.webp";
 import shopper13 from "../../assets/images/shopper-13.jpg";
 import shopper14 from "../../assets/images/shopper-14.webp";
+import onePlaceLogo from "../../assets/icons/one-place-logo.png";
 
 export default function Home() {
   const [textAlign, setTextAlign] = useState("center");
 
   return (
     <div className="home-wrapper">
-      <div>
+      <div className="content-wrapper">
         <h2>Everything You Need. </h2>
-        <h1>One Place</h1>
+        {/* <h1>One Place</h1> */}
+        <img className="one-place-logo" src={onePlaceLogo} />
       </div>
-      <div className="moving-box">
+      {/* <div className="moving-box">
         <img className="logo-icon" src={logo} />
         <img className="logo-icon" src={shopper} />
         <img className="logo-icon" src={shopper2} />
@@ -38,7 +40,7 @@ export default function Home() {
         <img className="logo-icon" src={shopper12} />
         <img className="logo-icon" src={shopper13} />
         <img className="logo-icon" src={shopper14} />
-      </div>
+      </div> */}
       <img src={happyShopper} alt="happy-shpper" />
     </div>
   );

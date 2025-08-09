@@ -4,9 +4,18 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
+  overflow: visible;
+
   .sorting-box {
     border-radius: $button-box-border-radius;
-    background-color: $main-orange;
+    background-color: $button-color;
+    border: none;
     padding: 3px;
+
+    &:hover {
+      box-shadow: $button-box-shadow;
+      background-color: $main-orange;
+    }
   }
 }
