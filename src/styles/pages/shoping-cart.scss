@@ -15,6 +15,10 @@
     color: $font-color;
     text-align: center;
     font-size: 25px;
+
+    .horizantl-logo {
+      width: 600px;
+    }
   }
 
   .shopping-cart-wrapper {
@@ -31,24 +35,67 @@
 
     .product-info-wrapper {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-items: center;
+      gap: 50px;
       border-radius: $product-card-border-radius;
       width: 700px;
       height: 200px;
       background-color: $product-box-color;
       box-shadow: $button-box-shadow;
       margin-bottom: 30px;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: $card-box-shadow;
+        transform: translateY(-3px);
+      }
+
+      .shipping-product-img {
+        margin-left: 30px;
+      }
     }
 
     .checkout-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       border-radius: $product-card-border-radius;
-      width: 300px;
+      width: 260px;
       height: 750px;
       position: fixed;
       right: 300px;
       top: 95px;
       background-color: $product-box-color;
+      box-shadow: $button-box-shadow;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: $card-box-shadow;
+        transform: translateY(-3px);
+      }
+
+      .checkout-button {
+        width: 90px;
+        border-radius: $button-box-border-radius;
+        border: none;
+        background-color: $button-color;
+        padding: 3px;
+
+        &:hover {
+          background-color: $main-orange;
+          box-shadow: $button-box-shadow;
+        }
+      }
+      .checkout-info-wrapper {
+        text-align: center;
+      }
+
+      .vertical-logo {
+        height: 500px;
+      }
     }
   }
 }

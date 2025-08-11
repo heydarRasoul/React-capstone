@@ -1,6 +1,13 @@
 @import "./variables-mixin.scss";
 
 .products-wrapper {
+  .loading-message {
+    background-color: $modales-back-color;
+    border-radius: $product-card-border-radius;
+    margin: 40%;
+    font-size: 50px;
+  }
+
   .filter-sort-wrapper {
     display: flex;
     flex-direction: column;

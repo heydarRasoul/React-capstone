@@ -4,6 +4,9 @@ import { AddToCartContext } from "./CartContext";
 import BackButton from "./BackButton";
 import UpdateShoppingCart from "./UpdateShoppingCart";
 import MessageModal from "./MessageModal";
+import verticalLogo from "../../assets/icons/vertical-logo.png";
+import onePlaceLogo from "../../assets/icons/one-place-logo.png";
+import TruncateDescription from "./TruncateDescription";
 
 export default function ShoppingCart() {
   const { cart, removeAllFromCart } = useContext(AddToCartContext);
@@ -29,6 +32,7 @@ export default function ShoppingCart() {
       <div className="shopping-cart-container">
         {cart.length === 0 ? (
           <p className="empty-shopping-cart-message">
+            <img className="horizantl-logo" src={onePlaceLogo} />
             Your shoping cart is empty
           </p>
         ) : (
@@ -38,10 +42,16 @@ export default function ShoppingCart() {
                 <li key={item.id}>
                   <div className="product-info-wrapper">
                     <div>
-                      <img src={item.image} alt={item.title} width={100} />
+                      <img
+                        className="shipping-product-img"
+                        src={item.image}
+                        alt={item.title}
+                        width={100}
+                      />
                     </div>
                     <div>
                       <h3>{item.title}</h3>
+
                       <h3>
                         ${item.price} × {item.quantity} = $
                         {item.price * item.quantity}
@@ -53,14 +63,16 @@ export default function ShoppingCart() {
               ))}
             </ul>
             <div className="checkout-wrapper">
-              <ul>
-                <li>Subtotal: ${sub.toFixed(2)}</li>
-                <li>Shipping: $ {shipping}</li>
+              <img className="vertical-logo" src={verticalLogo} />
+              <div className="checkout-info-wrapper">
+                <h4>Subtotal: ${sub.toFixed(2)}</h4>
+                <h4>Shipping: $ {shipping}</h4>
+                <h4>Total: $ {(sub + shipping).toFixed(2)}</h4>
+              </div>
 
-                <li>Total: $ {sub + shipping}</li>
-              </ul>
-
-              <button onClick={handleCheckout}>Checkout</button>
+              <button className="checkout-button" onClick={handleCheckout}>
+                Checkout
+              </button>
             </div>
           </div>
         )}

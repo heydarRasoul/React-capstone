@@ -6,6 +6,9 @@ import BackButton from "./BackButton";
 import UpdateShoppingCart from "./UpdateShoppingCart";
 import SortingProducts from "./SortingProducts";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -68,7 +71,12 @@ export default function Products() {
 
   return (
     <div className="products-wrapper">
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <p className="loading-message">
+          Loading...
+          <FontAwesomeIcon icon={faSpinner} spin />
+        </p>
+      )}
 
       {!loading && (
         <>

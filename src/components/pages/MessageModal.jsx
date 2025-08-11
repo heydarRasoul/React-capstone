@@ -11,7 +11,11 @@ export default function MessageModal({
   id,
 }) {
   return (
-    <ReactModal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      shouldCloseOnOverlayClick={false}
+    >
       <div className="secssess-note">
         <button onClick={onRequestClose} className="close-button">
           <FontAwesomeIcon icon={faTimes} />
@@ -24,9 +28,7 @@ export default function MessageModal({
           <div>
             <h2>Are you sure you want to remove this item?</h2>
             <button onClick={handleRemove}>Remove</button>
-            <button className="cancel-button" onClick={onRequestClose}>
-              Cancel
-            </button>
+            <button onClick={onRequestClose}>Cancel</button>
           </div>
         )}
       </div>

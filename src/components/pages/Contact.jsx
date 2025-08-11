@@ -31,48 +31,52 @@ export default function Contact() {
   return (
     <div className="form-wrapper">
       <form>
-        <label>
-          First Name
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="Enter your first name"
-            required
-          />
-        </label>
-        <label>
-          Last Name
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Enter your last name"
-            required
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </label>
-        <label>
-          Message
-          <textarea
-            type="textarea"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows="7"
-            cols="40"
-            placeholder="Write your message here"
-            required
-          />
-        </label>
+        <div className="info-wrapper">
+          <label>
+            First Name<span className="required">*</span>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Enter your first name"
+              required
+            />
+          </label>
+          <label>
+            Last Name<span className="required">*</span>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Enter your last name"
+              required
+            />
+          </label>
+          <label>
+            Email<span className="required">*</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+        </div>
+        <div className="message-wrapper">
+          <label>
+            Message<span className="required">*</span>
+            <textarea
+              type="textarea"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows="20"
+              cols="70"
+              placeholder="Write your message here"
+              required
+            />
+          </label>
+        </div>
         <button type="submit" onClick={(e) => handleSubmit(e)}>
           Submit
         </button>

@@ -1,13 +1,76 @@
+@import "./variables-mixin.scss";
+
 .form-wrapper {
-  background-color: gray;
+  width: 60%;
+
+  margin: 100px auto;
+
   form {
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+
+    align-items: center;
+    gap: 20px;
+
+    .info-wrapper {
+      width: auto;
+      height: 100px;
+      border-radius: $product-card-border-radius;
+      background-color: $product-box-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      label {
+        border-radius: $button-box-border-radius;
+        padding: 15px;
+        margin: 50px 20px;
+
+        .required {
+          @include required;
+        }
+      }
+
+      input {
+        margin-left: 10px;
+        border-radius: $button-box-border-radius;
+        border: none;
+        height: 30px;
+      }
+    }
+
+    .message-wrapper {
+      width: 870px;
+      height: 500px;
+      border-radius: $product-card-border-radius;
+      background-color: $product-box-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .required {
+        @include required;
+      }
+
+      textarea {
+        display: block;
+        margin-top: 10px;
+        border-radius: $button-box-border-radius;
+        border: none;
+      }
+    }
 
     button {
-      width: 80px;
+      width: 90px;
+      border-radius: $button-box-border-radius;
+      border: none;
+      background-color: $button-color;
+      padding: 3px;
+
+      &:hover {
+        background-color: $main-orange;
+        box-shadow: $button-box-shadow;
+      }
     }
   }
 }

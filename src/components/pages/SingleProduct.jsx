@@ -47,7 +47,7 @@ export default function Products() {
                 <h5>Rate: {product.rating.rate}</h5>
                 <h5>Reviews: {product.rating.count}</h5>
               </div>
-              <p>${product.price}</p>
+              <p className="product-price">${product.price}</p>
               <AddToShoppingNow product={product} />
             </div>
             <div className="img-wrapper">

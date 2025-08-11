@@ -13,3 +13,9 @@ $card-box-shadow: -1px 6px 14px 3px #5d5b56 inset;
 
 $button-box-border-radius: 7px;
 $product-card-border-radius: 10px;
+
+@mixin required {
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+}
