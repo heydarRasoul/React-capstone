@@ -1,5 +1,4 @@
 import ReactModal from "react-modal";
-import { useContext, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +20,7 @@ export default function MessageModal({
           <FontAwesomeIcon icon={faTimes} />
         </button>
         {id === "contact-page" && (
-          <h1>Thanks! Your message was sent successfully!</h1>
+          <h2>Thanks! Your message was sent successfully!</h2>
         )}
         {id === "checkout" && <h2>Thank you for shopping with us!</h2>}
         {id === "removing-item" && (

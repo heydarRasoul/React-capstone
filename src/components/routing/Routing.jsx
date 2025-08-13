@@ -6,6 +6,7 @@ import Products from "../pages/Products";
 import SingleProduct from "../pages/SingleProduct";
 import ShoppingCart from "../pages/ShoppingCart";
 import Home from "../pages/Home";
+import NoPage from "../pages/NoPage";
 
 export default function Routing() {
   return (
@@ -17,6 +18,7 @@ export default function Routing() {
       <Route path="/shoppingcart" component={ShoppingCart} />
       <Route path="/home" component={Home} />
       <Redirect exact from="/" to="/home" />
+      <Route component={NoPage} />
     </Switch>
   );
 }

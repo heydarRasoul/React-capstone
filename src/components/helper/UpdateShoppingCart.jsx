@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 
 import { AddToCartContext } from "./CartContext";
-
-import MessageModal from "./MessageModal";
+import MessageModal from "../modals/MessageModal";
 
 export default function UpdateShoppingCart({ product, type }) {
   const { addToCart, updateQuantity, removeFromCart } =

@@ -7,16 +7,16 @@
   align-items: center;
 
   .truncate-text {
-    width: 350px;
+    padding: 10px;
     text-align: center;
   }
 
   .show-hide-button {
-    width: 70px;
     border-radius: $button-box-border-radius;
     border: none;
     background-color: $button-color;
-    padding: 3px;
+    padding: 4px;
+    font-size: 12px;
 
     &:hover {
       background-color: $main-orange;

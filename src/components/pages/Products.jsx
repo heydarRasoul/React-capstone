@@ -1,17 +1,20 @@
 import { useEffect, useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AddToCartContext } from "./CartContext";
-import CategoryFilters from "./CategoryFilters";
-import BackButton from "./BackButton";
-import UpdateShoppingCart from "./UpdateShoppingCart";
-import SortingProducts from "./SortingProducts";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
+import verticalLogo from "../../assets/icons/vertical-logo.png";
+import UpdateShoppingCart from "../helper/UpdateShoppingCart";
+import { AddToCartContext } from "../helper/CartContext";
+import CategoryFilters from "../helper/CategoryFilters";
+import SortingProducts from "../helper/SortingProducts";
+import BackButton from "../helper/BackButton";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [filters, setFilters] = useState({
     menClothing: true,
@@ -80,11 +83,33 @@ export default function Products() {
 
       {!loading && (
         <>
-          <BackButton />
-          <div className="filter-sort-wrapper">
-            <CategoryFilters filters={filters} onChange={handleFilterChange} />
-            <SortingProducts onSortChange={handleSortChange} />
+          <BackButton className="back-button" />
+
+          <button
+            className="filter-menu"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            {isOpen ? "Close" : "Filter"}
+          </button>
+          <div
+            className={`left-menu-wrapper ${isOpen ? "visible" : ""}`}
+            onReset={() => setIsOpen(false)}
+          >
+            <div className="filter-sort-wrapper">
+              <CategoryFilters
+                filters={filters}
+                onChange={handleFilterChange}
+              />
+              <SortingProducts onSortChange={handleSortChange} />
+
+              <div className="logo-wrapper">
+                <img className="vertical-logo" src={verticalLogo} />
+              </div>
+            </div>
           </div>
+
           <div className="product-list">
             {getVisibleProducts().map((product) => (
               <div key={product.id} className="product-card">

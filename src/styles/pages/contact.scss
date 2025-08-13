@@ -13,17 +13,17 @@
     gap: 20px;
 
     .info-wrapper {
-      width: auto;
+      width: 850px;
       height: 100px;
       border-radius: $product-card-border-radius;
       background-color: $product-box-color;
+      box-shadow: $button-box-shadow;
       display: flex;
       justify-content: center;
       align-items: center;
 
       label {
         border-radius: $button-box-border-radius;
-        padding: 15px;
         margin: 50px 20px;
 
         .required {
@@ -40,10 +40,11 @@
     }
 
     .message-wrapper {
-      width: 870px;
+      width: 850px;
       height: 500px;
       border-radius: $product-card-border-radius;
       background-color: $product-box-color;
+      box-shadow: $button-box-shadow;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -70,6 +71,32 @@
       &:hover {
         background-color: $main-orange;
         box-shadow: $button-box-shadow;
+      }
+    }
+  }
+}
+
+@media (max-width: 790px) {
+  .form-wrapper {
+    width: 50%;
+    margin: 50px auto;
+
+    form {
+      gap: 20px;
+
+      .info-wrapper {
+        width: 300px;
+        height: 400px;
+        flex-direction: column;
+      }
+
+      .message-wrapper {
+        width: 500px;
+        height: 500px;
+      }
+
+      button {
+        margin-bottom: 100px;
       }
     }
   }

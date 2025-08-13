@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
-import MessageModal from "./MessageModal";
+import MessageModal from "../modals/MessageModal";
 
 export default function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -70,8 +70,8 @@ export default function Contact() {
               type="textarea"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              rows="20"
-              cols="70"
+              rows="22"
+              cols="50"
               placeholder="Write your message here"
               required
             />
