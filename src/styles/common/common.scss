@@ -1,8 +1,9 @@
-@import "./variables-mixin.scss";
+@import "./variables.scss";
 
 html,
 body {
   margin: 0;
 
   background: linear-gradient(to right, #bbb9b9, #d4bdab, #bbb9b9);
+  font-family: "Poppins", "Open Sans", sans-serif;
 }

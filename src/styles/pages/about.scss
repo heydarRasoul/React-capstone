@@ -1,0 +1,21 @@
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
+
+.about-wrapper {
+  @include flex-center($direction: column, $justify: space-around, $gap: 40px);
+  margin: 100px 0;
+  min-width: 450px;
+
+  .capstone-process,
+  .challenges,
+  .favorite-lung {
+    @include flex-center($justify: flex-start, $gap: 80px);
+    @include card-base;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    font-size: 20px;
+    line-height: 35px;
+    padding: 50px;
+  }
+}

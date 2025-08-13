@@ -14,6 +14,8 @@ export default function MessageModal({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       shouldCloseOnOverlayClick={false}
+      overlayClassName="custom-modal-overlay"
+      className="custom-modal-content"
     >
       <div className="secssess-note">
         <button onClick={onRequestClose} className="close-button">

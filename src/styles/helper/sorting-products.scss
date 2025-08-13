@@ -1,9 +1,8 @@
-@import "./variables-mixin.scss";
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
 
 .sorting-box-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  @include flex-center($direction: column, $gap: 10px);
 
   .sorting-box {
     border-radius: $button-box-border-radius;
@@ -12,9 +11,6 @@
     padding: 3px;
     width: 205px;
 
-    &:hover {
-      box-shadow: $button-box-shadow;
-      background-color: $main-orange;
-    }
+    @include button-hover;
   }
 }

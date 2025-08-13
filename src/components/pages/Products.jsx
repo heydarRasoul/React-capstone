@@ -73,7 +73,7 @@ export default function Products() {
   };
 
   return (
-    <div className="products-wrapper">
+    <div className={`products-wrapper ${isOpen ? "menu-open" : ""}`}>
       {loading && (
         <p className="loading-message">
           Loading...

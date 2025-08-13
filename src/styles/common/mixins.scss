@@ -1,0 +1,90 @@
+@import "./variables.scss";
+
+@mixin flex-center(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $gap: null
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin card-base {
+  background-color: $product-box-color;
+  border-radius: $product-card-border-radius;
+  box-shadow: $button-box-shadow;
+}
+
+@mixin card-hover {
+  &:hover {
+    cursor: pointer;
+    box-shadow: $card-box-shadow;
+    transform: translateY(-3px);
+  }
+}
+
+@mixin loading-message($margin, $font-size) {
+  background-color: $modales-back-color;
+  border-radius: $product-card-border-radius;
+  margin: $margin;
+  font-size: $font-size;
+}
+
+@mixin logo-box($width: 205px, $height: 50vh, $bg: $product-box-color) {
+  @include flex-center;
+  width: $width;
+  height: $height;
+  background-color: $bg;
+  border-radius: $product-card-border-radius;
+}
+
+@mixin image-wrapper($width, $height, $bg: $product-img-back-color) {
+  @include flex-center;
+  width: $width;
+  height: $height;
+  background-color: $bg;
+  border-radius: $product-card-border-radius;
+}
+
+@mixin pointer-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin required {
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+@mixin button-hover {
+  &:hover {
+    background-color: $main-orange;
+    box-shadow: $button-box-shadow;
+    cursor: pointer;
+  }
+}
+
+@mixin fixed-center($top: null, $right: null, $bottom: null, $left: null) {
+  position: fixed;
+  margin: auto;
+  @if $top != null {
+    top: $top;
+  }
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+  @if $right != null {
+    right: $right;
+  }
+  @if $left != null {
+    left: $left;
+  }
+}

@@ -1,4 +1,5 @@
-@import "./variables-mixin.scss";
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
 
 .form-wrapper {
   width: 60%;
@@ -6,21 +7,11 @@
   margin: 100px auto;
 
   form {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    gap: 20px;
+    @include flex-center($direction: column, $gap: 20px);
 
     .info-wrapper {
-      width: 850px;
-      height: 100px;
-      border-radius: $product-card-border-radius;
-      background-color: $product-box-color;
-      box-shadow: $button-box-shadow;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include card-base;
+      @include logo-box($width: 850px, $height: 100px);
 
       label {
         border-radius: $button-box-border-radius;
@@ -40,14 +31,16 @@
     }
 
     .message-wrapper {
-      width: 850px;
-      height: 500px;
-      border-radius: $product-card-border-radius;
-      background-color: $product-box-color;
-      box-shadow: $button-box-shadow;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include image-wrapper(850px, 500px);
+      @include card-base;
+      // width: 850px;
+      // height: 500px;
+      // border-radius: $product-card-border-radius;
+      // background-color: $product-box-color;
+      // box-shadow: $button-box-shadow;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
 
       .required {
         @include required;
@@ -62,16 +55,12 @@
     }
 
     button {
+      @include button-hover;
       width: 90px;
       border-radius: $button-box-border-radius;
       border: none;
       background-color: $button-color;
       padding: 3px;
-
-      &:hover {
-        background-color: $main-orange;
-        box-shadow: $button-box-shadow;
-      }
     }
   }
 }

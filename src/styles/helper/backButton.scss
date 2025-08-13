@@ -1,0 +1,13 @@
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
+
+.back-button {
+  @include fixed-center($top: 90px, $left: 50px);
+  @include button-hover;
+
+  width: 70px;
+  border-radius: $button-box-border-radius;
+  border: none;
+  background-color: $button-color;
+  padding: 3px;
+}

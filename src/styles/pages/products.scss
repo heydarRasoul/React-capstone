@@ -1,18 +1,16 @@
-@import "./variables-mixin.scss";
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
 
 .products-wrapper {
   .loading-message {
-    background-color: $modales-back-color;
-    border-radius: $product-card-border-radius;
-    margin: 300px;
-    font-size: 50px;
+    @include loading-message(300px, 50px);
   }
 
   .filter-menu {
     display: none;
     background: none;
     border: none;
-    color: white;
+    color: $color-white;
     font-size: 1rem;
     cursor: pointer;
   }
@@ -20,26 +18,15 @@
   .filter-sort-wrapper {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 130px;
-    left: 50px;
     gap: 20px;
 
-    & :hover {
-      cursor: pointer;
-    }
+    @include fixed-center($top: 130px, $left: 50px);
+
+    @include pointer-hover;
 
     .logo-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: $product-card-border-radius;
-      width: 205px;
-      height: 50vh;
-      position: fixed;
-      left: 50px;
-      top: 370px;
-      background-color: $product-box-color;
+      @include logo-box($width: 205px, $height: 50vh, $bg: $product-box-color);
+      @include fixed-center($top: 370px, $left: 50px);
 
       .vertical-logo {
         height: 90%;
@@ -54,29 +41,17 @@
     padding: 10px 0;
 
     .product-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      @include card-hover;
+      @include card-base;
+      @include flex-center(column, space-between, center);
       width: 220px;
-      border-radius: $product-card-border-radius;
       margin: 10px;
       padding: 10px;
-      background-color: $product-box-color;
-      box-shadow: $button-box-shadow;
-
-      &:hover {
-        cursor: pointer;
-        box-shadow: $card-box-shadow;
-        transform: translateY(-3px);
-      }
 
       .card-items {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        @include flex-center(column, space-around, center);
       }
+
       .nav-link {
         text-decoration: none;
         color: $font-color;
@@ -84,13 +59,7 @@
       }
 
       .products-img-wraper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 200px;
-        height: 250px;
-        background-color: $product-img-back-color;
-        border-radius: $product-card-border-radius;
+        @include image-wrapper(200px, 250px);
 
         img {
           align-self: center;
@@ -144,6 +113,7 @@
       border-radius: $button-box-border-radius;
       top: 10px;
       left: 10px;
+      z-index: 9999;
     }
     .left-menu-wrapper {
       position: fixed;
@@ -153,6 +123,8 @@
       background-color: $overlay-back-color;
       border-radius: 0 10px 10px 0;
       box-shadow: $button-box-shadow;
+      pointer-events: none;
+      overflow: hidden;
 
       .filter-sort-wrapper {
         display: flex;
@@ -179,6 +151,19 @@
       margin: 50px 0 100px 50px;
       padding: 10px 0;
       gap: 20px;
+    }
+  }
+
+  .products-wrapper.menu-open {
+    overflow: hidden;
+
+    > * {
+      pointer-events: none;
+    }
+    .filter-menu {
+      pointer-events: auto;
+      position: relative;
+      margin-bottom: 26px;
     }
   }
 }

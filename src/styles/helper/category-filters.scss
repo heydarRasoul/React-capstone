@@ -1,0 +1,14 @@
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
+
+.category-filter {
+  @include flex-center($direction: column, $gap: 10px);
+
+  .custom-checkbox {
+    @include button-hover;
+    background-color: $button-color;
+    border-radius: $button-box-border-radius;
+    padding: 3px;
+    width: 200px;
+  }
+}

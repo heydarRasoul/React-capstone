@@ -1,0 +1,21 @@
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
+
+.truncate-wrapper {
+  @include flex-center($direction: column);
+
+  .truncate-text {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .show-hide-button {
+    @include button-hover;
+
+    border-radius: $button-box-border-radius;
+    background-color: $button-color;
+    border: none;
+    padding: 4px;
+    font-size: 12px;
+  }
+}

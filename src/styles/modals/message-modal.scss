@@ -1,0 +1,56 @@
+@import "../common/variables.scss";
+@import "../common/mixins.scss";
+
+.custom-modal-overlay {
+  @include fixed-center(0, 0, 0, 0);
+  @include flex-center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+}
+
+.custom-modal-content {
+  @include card-base;
+
+  position: relative;
+  padding: 20px;
+  width: 70%;
+  max-width: 500px;
+  height: 300px;
+  outline: none;
+  margin: auto;
+  background-color: $overlay-back-color;
+  border-radius: $button-box-border-radius;
+}
+
+.secssess-note {
+  text-align: center;
+
+  h1,
+  h2 {
+    margin-top: 100px;
+    color: $color-white;
+    padding: 30px 0;
+  }
+
+  button {
+    @include button-hover;
+    border-radius: $button-box-border-radius;
+    background-color: $button-color;
+    width: 90px;
+    border: none;
+    padding: 3px;
+    margin: 20px;
+
+    &.close-button {
+      @include button-hover;
+      position: absolute;
+      width: auto;
+      top: 5px;
+      right: 0;
+      background: $button-color;
+      font-size: 15px;
+    }
+  }
+}
