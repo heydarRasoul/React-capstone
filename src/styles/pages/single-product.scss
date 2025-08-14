@@ -10,28 +10,21 @@
   }
 
   .product-wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include flex-center($justify: space-around, $gap: 20px);
+
     margin: 100px 20px 100px 140px;
-    gap: 20px;
 
     .product-info-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include flex-center($direction: column);
+      @include card-base;
+
       padding: 30px;
       width: 300px;
       height: auto;
       text-align: center;
-      background-color: $product-box-color;
-      border-radius: $product-card-border-radius;
-      box-shadow: $button-box-shadow;
 
       .product-info {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
+        @include flex-center($justify: space-between, $gap: 10px);
       }
 
       .product-price {
@@ -40,15 +33,11 @@
     }
 
     .img-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+      @include flex-center($direction: column, $justify: space-around);
+      @include card-base;
+
       width: 600px;
       height: 75vh;
-      background-color: $product-box-color;
-      border-radius: $product-card-border-radius;
-      box-shadow: $button-box-shadow;
     }
 
     .product-img {

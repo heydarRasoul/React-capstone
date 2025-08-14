@@ -1,8 +1,7 @@
 @import "../common/mixins.scss";
 
 .no-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
+
   margin: 300px;
 }

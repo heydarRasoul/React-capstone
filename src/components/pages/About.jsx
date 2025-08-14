@@ -1,5 +1,3 @@
-import TruncateDescription from "../helper/TruncateDescription";
-
 export default function About() {
   return (
     <div className="about-wrapper">

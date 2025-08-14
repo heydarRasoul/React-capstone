@@ -33,14 +33,6 @@
     .message-wrapper {
       @include image-wrapper(850px, 500px);
       @include card-base;
-      // width: 850px;
-      // height: 500px;
-      // border-radius: $product-card-border-radius;
-      // background-color: $product-box-color;
-      // box-shadow: $button-box-shadow;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
 
       .required {
         @include required;
