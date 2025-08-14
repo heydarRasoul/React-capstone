@@ -8,7 +8,8 @@
 
   .capstone-process,
   .challenges,
-  .favorite-lung {
+  .favorite-lung,
+  .figma-prototype {
     @include flex-center($justify: flex-start, $gap: 80px);
     @include card-base;
     width: 80%;
@@ -17,5 +18,13 @@
     font-size: 20px;
     line-height: 35px;
     padding: 50px;
+  }
+  .iframe-wrapper {
+    @include flex-center;
+    width: 100%;
+    iframe {
+      width: 85%;
+      height: 70vh;
+    }
   }
 }
