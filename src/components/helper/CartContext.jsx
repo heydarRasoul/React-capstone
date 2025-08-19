@@ -33,7 +33,7 @@ export default function AddToCartProvider({ children }) {
 
           if (action === "decrease") {
             const newQuantity = item.quantity - 1;
-            if ((type = "shoppingCart")) {
+            if (type === "shoppingCart") {
               return newQuantity > 0
                 ? { ...item, quantity: newQuantity }
                 : item;
